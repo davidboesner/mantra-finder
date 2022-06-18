@@ -8,11 +8,11 @@
   <span>Für welchen Zweck suchst du ein Mantra?</span>
   <br>
   
-  <mat-form-field>
+  <mat-form-field style="width:50vw" appearance="fill">
     <input type="text"class="input-underline searchbar" placeholder="z.B. Mitgefühl" matInput [formControl]="myControl"
-         [matAutocomplete]="auto">
+         [matAutocomplete]="auto" >
        <mat-autocomplete #auto="matAutocomplete">
-         <mat-option *ngFor="let option of options" [value]="option">
+         <mat-option *ngFor="let option of filteredOptions  | async" [value]="option">
            {{option}}
         </mat-option>
     </mat-autocomplete>

@@ -1,0 +1,63 @@
+.center-text {
+    text-align:center;
+}
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.vertical-align-middle {
+    vertical-align:middle
+}
+
+.box {
+    display: flex;
+    align-items:center;
+ }
+
+ #Für Lupe
+{
+  /* Reset browser's padding and margin */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+body {
+  background: #4a69bd;
+}
+
+.container {
+  margin: 200px auto;
+  width: 500px;
+  height: 60px
+}
+
+/* The point of this tutorial is here */
+
+
+.search-button {
+  background: transparent;
+  border: none;
+  //outline: none;
+  margin-left: -33px;
+}
+
+.search-button img {
+
+  width: 12px;
+  height: 10px;
+  object-fit: cover;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

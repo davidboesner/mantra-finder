@@ -17,7 +17,14 @@ export class AppComponent {
 
   map1 = new Map()
   .set("Mitgefühl", "Om mani padme hum (Sanskrit ॐ मणिपद्मे हूँ oṃ maṇi-padme hūṃ, tibetisch ཨོཾ་མ་ཎི་པ་དྨེ་ཧཱུྃ)  ")
-  .set("XYZ", "234");
+  .set("Totem Tier gute Wiedergeburt wünschen", "Om mani padme hum (Sanskrit ॐ मणिपद्मे हूँ oṃ maṇi-padme hūṃ, tibetisch ཨོཾ་མ་ཎི་པ་དྨེ་ཧཱུྃ)  ")
+  .set("Tatkraft aller Buddhas wirke durch mich", "Karmapa chenno")
+  .set("Mögen alle Wesen überall glücklich und frei sein, und mögen meine Worte, Taten und Gedanken auf irgendeine Weise zum Glück und zur Freiheit aller beitragen", "Lokah Samastah Sukhino Bhavantu")
+  .set("Streit mit eine*r guten Freund*in", "Lokah Samastah")
+  .set("Selbstliebe und Achtsamkeit!", "So Ham")
+  .set("Überwinde negative Gedankenmuster", "Ra Ma Da Sa")
+  .set("Guru Mantra", "Gurur Brahmā Gurur Vishnur Gurur Devo Maheshvarah; Guruh Sākshāt Param Brahma Tasmai Śrī Gurave Namah")
+  
 
   mapKeys:string[] = Array.from( this.map1.keys() );
   

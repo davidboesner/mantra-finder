@@ -10,18 +10,21 @@ import * as data from '../assets/PurposeMantra.json';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+// @ts-ignore: Das Objekt ist möglicherweise "nicht definiert".
 export class AppComponent {
   title="Welches Mantra suchst du?";
   displayVal:string="";
   displayMantra:any="";
   myControl = new FormControl();
-
-  jsonObject = data;
-  map1 = new Map<string,string>(Object.entries(this.jsonObject));
   
+  jsonObject = data;
+
+  map1 = new Map<string,string>(Object.entries(this.jsonObject));
   mapKeys:string[] = Array.from( this.map1.keys() );
   
-  options: string[] = this.mapKeys;
+  options: string[] = this.mapKeys.filter(s => s!="default");
+  
   filteredOptions: Observable<string[]>= this.myControl.valueChanges.pipe(
     startWith(''),
     map(value => this._filter(value || '')),

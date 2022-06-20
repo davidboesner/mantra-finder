@@ -9,7 +9,7 @@
   <br>
   <br>  
   <mat-form-field style="width:50vw" appearance="fill">
-    <input type="text"class="input-underline searchbar" placeholder="z.B. Mitgefühl" matInput [formControl]="myControl"
+    <input type="text" class="input-underline searchbar make-wide" placeholder="z.B. Mitgefühl" matInput [formControl]="myControl"
          [matAutocomplete]="auto" name="mantraPurpose" #box (keyup)="getValue(box.value)" (ngModelChange)="getValue(box.value)">         
        <mat-autocomplete #auto="matAutocomplete">
          <mat-option *ngFor="let option of filteredOptions  | async" [value]="option">
@@ -18,5 +18,5 @@
     </mat-autocomplete>    
   </mat-form-field>
   <br>
-  <p>{{displayVal}}</p>
+  <div>{{displayVal}}</div> <b>{{displayMantra}}</b>
 </div>

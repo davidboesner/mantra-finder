@@ -12,6 +12,7 @@ import {map, startWith} from 'rxjs/operators';
 export class AppComponent {
   title="Welches Mantra suchst du?";
   displayVal:string="";
+  displayMantra:string="";
   myControl = new FormControl();
   map = {};
 
@@ -20,7 +21,7 @@ export class AppComponent {
   .set("Totem Tier gute Wiedergeburt wünschen", "Om mani padme hum (Sanskrit ॐ मणिपद्मे हूँ oṃ maṇi-padme hūṃ, tibetisch ཨོཾ་མ་ཎི་པ་དྨེ་ཧཱུྃ)  ")
   .set("Tatkraft aller Buddhas wirke durch mich", "Karmapa chenno")
   .set("Mögen alle Wesen überall glücklich und frei sein, und mögen meine Worte, Taten und Gedanken auf irgendeine Weise zum Glück und zur Freiheit aller beitragen", "Lokah Samastah Sukhino Bhavantu")
-  .set("Streit mit eine*r guten Freund*in", "Lokah Samastah")
+  .set("Streit mit eine(m/r) guten Freund*in", "Lokah Samastah")
   .set("Selbstliebe und Achtsamkeit!", "So Ham")
   .set("Überwinde negative Gedankenmuster", "Ra Ma Da Sa")
   .set("Guru Mantra", "Gurur Brahmā Gurur Vishnur Gurur Devo Maheshvarah; Guruh Sākshāt Param Brahma Tasmai Śrī Gurave Namah")
@@ -51,9 +52,11 @@ export class AppComponent {
      console.log("Hallo David: " + val);
      console.log("this.mapKeys="  + typeof(this.mapKeys));
      if (this.mapKeys.includes(val)) {
-      this.displayVal = "Mantra für " + val + ": " + this.map1.get(val);
+      this.displayVal = "Mantra für \"" + val + "\": ";
+      this.displayMantra = this.map1.get(val);
      } else {
       this.displayVal = 'Kein Mantra gefunden für: ' + val;
+      this.displayMantra = "";
      }
      
   }

@@ -61,3 +61,13 @@ body {
 .example-full-width {
   width: 100%;
 }
+
+.make-wide {
+  width: 100% !important;
+}
+
+.form-outer {
+  input.clr-input {
+      width: 100% ;
+  }
+}

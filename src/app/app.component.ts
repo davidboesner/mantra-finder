@@ -22,8 +22,8 @@ export class AppComponent {
   .set("Tatkraft aller Buddhas wirke durch mich", "Karmapa chenno")
   .set("Mögen alle Wesen überall glücklich und frei sein, und mögen meine Worte, Taten und Gedanken auf irgendeine Weise zum Glück und zur Freiheit aller beitragen", "Lokah Samastah Sukhino Bhavantu")
   .set("Streit mit eine(m/r) guten Freund*in", "Lokah Samastah")
-  .set("Selbstliebe und Achtsamkeit!", "So Ham")
-  .set("Überwinde negative Gedankenmuster", "Ra Ma Da Sa")
+  .set("Selbstliebe und Achtsamkeit", "So Ham")
+  .set("Überwinden negativer Gedankenmuster", "Ra Ma Da Sa")
   .set("Guru Mantra", "Gurur Brahmā Gurur Vishnur Gurur Devo Maheshvarah; Guruh Sākshāt Param Brahma Tasmai Śrī Gurave Namah")
   
 
@@ -55,8 +55,13 @@ export class AppComponent {
       this.displayVal = "Mantra für \"" + val + "\": ";
       this.displayMantra = this.map1.get(val);
      } else {
-      this.displayVal = 'Kein Mantra gefunden für: ' + val;
-      this.displayMantra = "";
+      if (val == "") {
+        this.displayVal = '';
+        this.displayMantra = "";
+      } else {
+        this.displayVal = 'Kein Mantra gefunden für: ' + val;
+        this.displayMantra = "";
+      }
      }
      
   }

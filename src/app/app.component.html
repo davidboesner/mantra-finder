@@ -2,12 +2,12 @@
 <app-header></app-header>
 
 <div class="center-text center-image vertical-align-middle">
-  <img width="15%" src="assets/img/buddhas/buddha.jpg">
   <br>
   <br>
-  <span>Für welchen Zweck suchst du ein Mantra?</span>
+  <span style="font-size: 3vw;">Welches Mantra suchst du?</span>
   <br>
-  
+  <br>
+  <br>  
   <mat-form-field style="width:50vw" appearance="fill">
     <input type="text"class="input-underline searchbar" placeholder="z.B. Mitgefühl" matInput [formControl]="myControl"
          [matAutocomplete]="auto" >
@@ -16,9 +16,7 @@
            {{option}}
         </mat-option>
     </mat-autocomplete>
-    <button type="submit" class="search-button">
-      <img src="assets/img/lupe.png"> 
-    </button>
+
   </mat-form-field>
   <br>
   

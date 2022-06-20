@@ -12,21 +12,21 @@ import {map, startWith} from 'rxjs/operators';
 export class AppComponent {
   title="Welches Mantra suchst du?";
   displayVal:string="";
-  displayMantra:string="";
+  displayMantra:any="";
   myControl = new FormControl();
-  map = {};
 
-  map1 = new Map()
-  .set("Mitgefühl", "Om mani padme hum (Sanskrit ॐ मणिपद्मे हूँ oṃ maṇi-padme hūṃ, tibetisch ཨོཾ་མ་ཎི་པ་དྨེ་ཧཱུྃ)  ")
-  .set("Totem Tier gute Wiedergeburt wünschen", "Om mani padme hum (Sanskrit ॐ मणिपद्मे हूँ oṃ maṇi-padme hūṃ, tibetisch ཨོཾ་མ་ཎི་པ་དྨེ་ཧཱུྃ)  ")
-  .set("Tatkraft aller Buddhas wirke durch mich", "Karmapa chenno")
-  .set("Mögen alle Wesen überall glücklich und frei sein, und mögen meine Worte, Taten und Gedanken auf irgendeine Weise zum Glück und zur Freiheit aller beitragen", "Lokah Samastah Sukhino Bhavantu")
-  .set("Streit mit eine(m/r) guten Freund*in", "Lokah Samastah")
-  .set("Selbstliebe und Achtsamkeit", "So Ham")
-  .set("Überwinden negativer Gedankenmuster", "Ra Ma Da Sa")
-  .set("Guru Mantra", "Gurur Brahmā Gurur Vishnur Gurur Devo Maheshvarah; Guruh Sākshāt Param Brahma Tasmai Śrī Gurave Namah")
+  jsonObject = {
+    "Mitgefühl": "Om mani padme hum (Sanskrit ॐ मणिपद्मे हूँ oṃ maṇi-padme hūṃ, tibetisch ཨོཾ་མ་ཎི་པ་དྨེ་ཧཱུྃ)  ",
+    "Totem Tier gute Wiedergeburt wünschen": "Om mani padme hum (Sanskrit ॐ मणिपद्मे हूँ oṃ maṇi-padme hūṃ, tibetisch ཨོཾ་མ་ཎི་པ་དྨེ་ཧཱུྃ)  ",
+    "Tatkraft aller Buddhas wirke durch mich": "Karmapa chenno",
+    "Mögen alle Wesen überall glücklich und frei sein, und mögen meine Worte, Taten und Gedanken auf irgendeine Weise zum Glück und zur Freiheit aller beitragen": "Lokah Samastah Sukhino Bhavantu",
+    "Streit mit eine(m/r) guten Freund*in":"Lokah Samastah",
+    "Selbstliebe und Achtsamkeit": "So Ham",
+    "Überwinden negativer Gedankenmuster": "Ra Ma Da Sa",
+    "Guru Mantra": "Gurur Brahmā Gurur Vishnur Gurur Devo Maheshvarah; Guruh Sākshāt Param Brahma Tasmai Śrī Gurave Namah",
+  }
+  map1 = new Map<string,string>(Object.entries(this.jsonObject));
   
-
   mapKeys:string[] = Array.from( this.map1.keys() );
   
   options: string[] = this.mapKeys;
@@ -45,7 +45,7 @@ export class AppComponent {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    return this.options.filter((option: string) => option.toLowerCase().includes(filterValue));
   }
 
   getValue(val:string) {
@@ -53,7 +53,7 @@ export class AppComponent {
      console.log("this.mapKeys="  + typeof(this.mapKeys));
      if (this.mapKeys.includes(val)) {
       this.displayVal = "Mantra für \"" + val + "\": ";
-      this.displayMantra = this.map1.get(val);
+      this.displayMantra = this.map1?.get(val)?.toString();
      } else {
       if (val == "") {
         this.displayVal = '';

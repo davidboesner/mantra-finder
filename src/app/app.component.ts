@@ -16,9 +16,9 @@ export class AppComponent {
   map = {};
 
   map1 = new Map()
-  .set("ABC", "123")
+  .set("Mitgefühl", "Om mani padme hum (Sanskrit ॐ मणिपद्मे हूँ oṃ maṇi-padme hūṃ, tibetisch ཨོཾ་མ་ཎི་པ་དྨེ་ཧཱུྃ)  ")
   .set("XYZ", "234");
-  
+
   mapKeys:string[] = Array.from( this.map1.keys() );
   
   options: string[] = this.mapKeys;
@@ -44,7 +44,7 @@ export class AppComponent {
      console.log("Hallo David: " + val);
      console.log("this.mapKeys="  + typeof(this.mapKeys));
      if (this.mapKeys.includes(val)) {
-      this.displayVal = val + ":" + this.map1.get(val);
+      this.displayVal = "Mantra für " + val + ": " + this.map1.get(val);
      } else {
       this.displayVal = 'Kein Mantra gefunden für: ' + val;
      }

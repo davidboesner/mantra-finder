@@ -19,7 +19,7 @@ export class AppComponent {
   myControl = new FormControl();
   searchFor = '';
   doClean:boolean = false;
-
+  searchField:string = "";
   jsonObject = data;
 
   map1 = new Map<string,string>(Object.entries(this.jsonObject));
@@ -57,20 +57,11 @@ export class AppComponent {
         this.displayVal = 'Kein Mantra gefunden für: ' + val;
         this.displayMantra = "";
       }
-    }
-    if (this.doClean) {
-      this.displayVal = "";
-      this.displayMantra = "";
-      this.searchFor = "";
-    }
-    this.doClean=false;
+    }  
   }
   
-  handleClear(){    
-    this.displayVal = ' ';
-    this.displayMantra = " ";
-    this.searchFor = ' ';
-    this.doClean=true;    
+  clearSearchField() {    
+    this.searchField = '';  
   }
 
 }

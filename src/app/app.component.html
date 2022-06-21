@@ -8,16 +8,20 @@
   <br>
   <br>
   <br>  
-  <mat-form-field style="width:50vw" appearance="fill">
-    <input type="text" class="input-underline searchbar make-wide" placeholder="z.B. Mitgefühl" matInput [formControl]="myControl"
-         [matAutocomplete]="auto" name="mantraPurpose" #box (keyup)="getValue(box.value)" (ngModelChange)="getValue(box.value)" [(ngModel)]="searchFor" required>         
+  <mat-form-field style="width:50vw" appearance="outline">
+    <input type="search" [(ngModel)]="searchField" placeholder="z.B. Mitgefühl" matInput [formControl]="myControl"
+         [matAutocomplete]="auto" #box (keyup)="getValue(box.value)" (ngModelChange)="getValue(box.value)">  
+      <button mat-button mat-icon-button matSuffix (click)="clearSearchField()" *ngIf="searchField">
+          <mat-icon>close</mat-icon>
+      </button>
        <mat-autocomplete #auto="matAutocomplete">
          <mat-option *ngFor="let option of filteredOptions  | async" [value]="option">
            {{option}}
         </mat-option>
-    </mat-autocomplete>      
+    </mat-autocomplete>
   </mat-form-field>
-  <button class="search-button" (keyup)="getValue(box.value)">Suchen</button> <button class="search-button" (click)="handleClear()">Leeren</button>    
+    
+  <button class="search-button" (keyup)="getValue(box.value)">Suchen</button>
   <br>
   <div>{{displayVal}}</div> <b>{{displayMantra}}</b>
 </div>

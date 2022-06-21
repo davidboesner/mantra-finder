@@ -25,7 +25,7 @@ export class AppComponent {
   map1 = new Map<string,string>(Object.entries(this.jsonObject));
   mapKeys:string[] = Array.from( this.map1.keys() );
   
-  options: string[] = this.mapKeys.filter(s => s!="default");
+  options: string[] = this.mapKeys.filter(s => s!="default").sort();
   
   filteredOptions: Observable<string[]>= this.myControl.valueChanges.pipe(
     startWith(''),

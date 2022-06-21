@@ -1,10 +1,10 @@
 
-<app-header></app-header>
+<app-header [title]="title"></app-header>
 
 <div class="center-text center-image vertical-align-middle">
   <br>
   <br>
-  <span style="font-size: 3vw;">{{title}}</span>
+  <span [ngClass]="{'big-text': isMobile() === true, 'small-text' : isMobile() === false }">{{title}}</span>
   <br>
   <br>
   <br>  

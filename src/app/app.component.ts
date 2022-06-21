@@ -17,7 +17,8 @@ export class AppComponent {
   displayVal:string="";
   displayMantra:any="";
   myControl = new FormControl();
-  
+  name = '';
+
   jsonObject = data;
 
   map1 = new Map<string,string>(Object.entries(this.jsonObject));
@@ -59,6 +60,10 @@ export class AppComponent {
       }
      }
      
+  }
+  
+  handleClear(){
+    this.name = '';
   }
 
 }

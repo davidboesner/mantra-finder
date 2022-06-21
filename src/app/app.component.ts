@@ -17,7 +17,8 @@ export class AppComponent {
   displayVal:string="";
   displayMantra:any="";
   myControl = new FormControl();
-  name = '';
+  searchFor = '';
+  doClean:boolean = false;
 
   jsonObject = data;
 
@@ -44,9 +45,7 @@ export class AppComponent {
     return this.options.filter((option: string) => option.toLowerCase().includes(filterValue));
   }
 
-  getValue(val:string) {
-     console.log("Hallo David: " + val);
-     console.log("this.mapKeys="  + typeof(this.mapKeys));
+  getValue(val:string) {          
      if (this.mapKeys.includes(val)) {
       this.displayVal = "Mantra für \"" + val + "\": ";
       this.displayMantra = this.map1?.get(val)?.toString();
@@ -58,12 +57,20 @@ export class AppComponent {
         this.displayVal = 'Kein Mantra gefunden für: ' + val;
         this.displayMantra = "";
       }
-     }
-     
+    }
+    if (this.doClean) {
+      this.displayVal = "";
+      this.displayMantra = "";
+      this.searchFor = "";
+    }
+    this.doClean=false;
   }
   
-  handleClear(){
-    this.name = '';
+  handleClear(){    
+    this.displayVal = ' ';
+    this.displayMantra = " ";
+    this.searchFor = ' ';
+    this.doClean=true;    
   }
 
 }

@@ -10,13 +10,18 @@ import { AngularMaterialModule } from './angular-material.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { AboutComponent } from './about/about.component';
+import { FinderComponent } from './finder/finder.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent,
+    FinderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     MaterialModule,
     AngularMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

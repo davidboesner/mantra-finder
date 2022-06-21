@@ -1,8 +1,21 @@
 h5{
     background-color: aliceblue;
     padding: 20px;
-    position: absolute;    
+    position: fixed;    
     width: 97.1vw;
-    bottom: 0 !important;
+    bottom: 0;
     border:0;
+}
+
+a {
+display: inline-block;
+transition: .3s;
+font-weight:bold;
+text-decoration:none;
+margin:8px;
+}
+a:hover {
+-webkit-transform: scale(1.2);
+transform: scale(1.2);
+margin:8px;
 }

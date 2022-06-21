@@ -1,0 +1,24 @@
+<div class="center-text center-image vertical-align-middle">
+    <br>
+    <br>
+    <span [ngClass]="{'big-text': isMobile() === true, 'small-text' : isMobile() === false }">{{title}}</span>
+    <br>
+    <br>
+    <br>  
+    <mat-form-field id="form-field-input" appearance="outline" [ngClass]="{'wide-input-field': isMobile() === true, 'narrow-input-field' : isMobile() === false }">
+      <input type="search" [(ngModel)]="searchField" placeholder="z.B. Mitgefühl" matInput [formControl]="myControl"
+           [matAutocomplete]="auto" #box (keyup)="getValue(box.value)" (ngModelChange)="getValue(box.value)">  
+        <button mat-button mat-icon-button matSuffix (click)="clearSearchField()" *ngIf="searchField">
+            <mat-icon>close</mat-icon>
+        </button>
+         <mat-autocomplete #auto="matAutocomplete">
+           <mat-option *ngFor="let option of filteredOptions  | async" [value]="option">
+             {{option}}
+          </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+      
+    <button class="search-button" (keyup)="getValue(box.value)"><mat-icon>search</mat-icon></button>
+    <br>
+    <div>{{displayVal}}</div> <b>{{displayMantra}}</b>
+  </div>

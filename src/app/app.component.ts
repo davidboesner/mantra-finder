@@ -21,6 +21,7 @@ export class AppComponent {
   doClean:boolean = false;
   searchField:string = "";
   jsonObject = data;
+  
 
   map1 = new Map<string,string>(Object.entries(this.jsonObject));
   mapKeys:string[] = Array.from( this.map1.keys() );
@@ -63,5 +64,12 @@ export class AppComponent {
   clearSearchField() {    
     this.searchField = '';  
   }
-
+  isMobile():boolean {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      // true for mobile device
+      return true;
+    }
+    // false for not mobile device
+    return false;
+  }
 }

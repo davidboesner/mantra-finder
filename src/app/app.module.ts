@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { AboutComponent } from './about/about.component';
 import { FinderComponent } from './finder/finder.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { FinderComponent } from './finder/finder.component';
     AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

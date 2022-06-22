@@ -4,6 +4,8 @@ import { MAT_DATEPICKER_SCROLL_STRATEGY } from '@angular/material/datepicker';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import * as data from '../../assets/PurposeMantra.json';
+import * as mantra_video_mapping from '../../assets/MantraVideoMapping.json';
+import { getTreeNoValidDataSourceError } from '@angular/cdk/tree';
 
 @Component({
   selector: 'app-finder',
@@ -72,5 +74,13 @@ export class FinderComponent implements OnInit {
   
   clearSearchField() {    
     this.searchField = '';  
+  }
+
+  findVideo(mantra:string) {
+   
+    let mapMantraVideo = new Map<string,string>(Object.entries(mantra_video_mapping));
+    let video = mapMantraVideo.get(mantra);
+
+    return video;
   }
 }

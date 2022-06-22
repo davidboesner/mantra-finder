@@ -22,8 +22,18 @@
     <br>
     <div>{{displayVal}}</div> <b>{{displayMantra}}</b>
 
-    <youtube-player
+    <div><youtube-player style="align-self: center;"
        *ngIf="findVideo(displayMantra)"
        [videoId]='findVideo(displayMantra)'
-       suggestedQuality="highres"></youtube-player>
-  </div>
+       suggestedQuality="highres"
+       [width]="400"
+       ></youtube-player></div>
+      </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+

@@ -21,7 +21,8 @@
     <button class="search-button" (keyup)="getValue(box.value)"><mat-icon>search</mat-icon></button>
     <br>
     <div>{{displayVal}}</div> <b>{{displayMantra}}</b>
-
+    <br>
+    <br>
     <div><youtube-player style="align-self: center;"
        *ngIf="findVideo(displayMantra)"
        [videoId]='findVideo(displayMantra)'
@@ -29,8 +30,7 @@
        [width]="400"
        ></youtube-player></div>
       </div>
-  <br>
-  <br>
+ 
   <br>
   <br>
   <br>

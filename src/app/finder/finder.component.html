@@ -6,7 +6,7 @@
     <br>
     <br>  
     <mat-form-field id="form-field-input" appearance="outline" [ngClass]="{'wide-input-field': isMobile() === true, 'narrow-input-field' : isMobile() === false }">
-      <input type="search" [(ngModel)]="searchField" placeholder="z.B. Mitgefühl" matInput [formControl]="myControl"
+      <input type="search" [(ngModel)]="searchField" placeholder='z.B. "Mitgefühl" oder "Ra Ma Da Sa"' matInput [formControl]="myControl"
            [matAutocomplete]="auto" #box (keyup)="getValue(box.value)" (ngModelChange)="getValue(box.value)">  
         <button mat-button mat-icon-button matSuffix (click)="clearSearchField()" *ngIf="searchField">
             <mat-icon>close</mat-icon>

@@ -71,6 +71,14 @@ export class FinderComponent implements OnInit {
      if (this.mapValues.includes(val)) {
       this.displayVal = "Folgendes habe ich über dieses Mantra gefunden \"" + val + "\": ";
       this.mantraVideo = val;
+      this.displayMantra = "";
+      let found = "";
+      this.map1.forEach(function(value:string,key:string){
+        if (value == val) {
+          found = key
+        }
+      });
+      this.displayMantra = found;
       return;
      }
      // Kategorie -> Mantra

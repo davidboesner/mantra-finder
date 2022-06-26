@@ -15,6 +15,7 @@ import { AboutComponent } from './about/about.component';
 import { FinderComponent } from './finder/finder.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { WhatIsAMantraComponent } from './what-is-amantra/what-is-amantra.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AboutComponent,
     FinderComponent,
     NotFoundComponent,
+    WhatIsAMantraComponent,
   ],
   imports: [
     BrowserModule,

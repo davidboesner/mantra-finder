@@ -102,9 +102,11 @@ export class FinderComponent implements OnInit {
   }
 
   findVideo(mantra:string) {
-    console.log("ösldkflkölk" + mantra);
+    console.log("Mantra in findVideo" + mantra);
     let mapMantraVideo = new Map<string,string>(Object.entries(mantra_video_mapping));
+    console.log(mapMantraVideo);
     let video = mapMantraVideo.get(mantra);
+    console.log("Video in findVideo: " + video);
 
     return video;
   }

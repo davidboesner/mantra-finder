@@ -1,3 +1,21 @@
-<header>         
-    <div class="box"><img class="logo" src="assets/img/logo.svg" height="50vh" alt=""> <span class="t"><a style="color: black;" routerLink="/" routerLinkActive="active inactive">mantra-finder</a></span></div>
+<header class="navbar" [ngClass]="{'navbar-fixed':isFixedNavbar}">         
+    <div class="box">
+        <img class="logo" src="assets/img/logo.svg" height="50vh" alt=""> <span class="t"><a style="color: black;" routerLink="/" routerLinkActive="active inactive">mantra-finder</a></span>
+        
+
+         <div fxFlex class="top-navbar">
+            <span fxFlex></span>
+            <a mat-button  class="navbartop-btn" routerLink="/"><strong>Mantra finder</strong></a>
+            <a mat-button  class="navbartop-btn" routerLink="datenschutz"><strong>Datenschutz</strong></a>            
+         </div>
+
+         <div class="navbar-mobile-top" fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start center">
+            <div class="navbar-logo">
+               
+            </div>
+            <button mat-icon-button color="accent" class="navbar-toggle" (click)="toggleNavbar()">
+               <mat-icon>{{!navbarOpened ? 'menu': 'close'}}</mat-icon>
+            </button>
+         </div>
+    </div>       
 </header>

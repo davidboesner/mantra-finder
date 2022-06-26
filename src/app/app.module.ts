@@ -24,7 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FooterComponent,
     AboutComponent,
     FinderComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

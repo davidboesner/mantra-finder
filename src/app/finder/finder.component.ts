@@ -33,18 +33,25 @@ export class FinderComponent implements OnInit {
   searchField:string = "";
   jsonObject = data;
   
-
   map1 = new Map<string,string>(Object.entries(this.jsonObject));
   mapKeys:string[] = Array.from( this.map1.keys() );
-  
-  options: string[] = this.mapKeys.filter(s => s!="default").sort();
-  
+  mapValues:string[] = Array.from( this.map1.values() ).filter((v, i, a) => a.indexOf(v) === i).filter(s => s!="default").filter(s => typeof(s)=="string").sort();
+  allOptions:string[] =  Array.from(this.mapKeys.concat(this.mapValues));
+  options: string[] = [];
+  mantraVideo: string = "";
+
   filteredOptions: Observable<string[]>= this.myControl.valueChanges.pipe(
     startWith(''),
     map(value => this._filter(value || '')),
   );
 
   ngOnInit() {
+
+    console.log(this.mapValues);
+    
+    this.options = this.allOptions.filter(s => s!="default").sort();
+
+
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
@@ -52,15 +59,25 @@ export class FinderComponent implements OnInit {
   }
 
   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+    const filterValue:string = value.toLowerCase();
 
-    return this.options.filter((option: string) => option.toLowerCase().includes(filterValue));
+    return this.options.filter((option: string) => (option.toLowerCase().includes(filterValue)));
   }
 
-  getValue(val:string) {          
+  getValue(val:string) {  
+     //let valuesLower = this.mapValues.map(name => name.toLowerCase());
+     //console.log("sdsdsdsdsd"+ valuesLower);
+     // Mantra Kategorie
+     if (this.mapValues.includes(val)) {
+      this.displayVal = "Folgendes habe ich über dieses Mantra gefunden \"" + val + "\": ";
+      this.mantraVideo = val;
+      return;
+     }
+     // Kategorie -> Mantra
      if (this.mapKeys.includes(val)) {
       this.displayVal = "Mantra für \"" + val + "\": ";
       this.displayMantra = this.map1?.get(val)?.toString();
+      this.mantraVideo = this.map1?.get(val)?.toString()!;
      } else {
       if (val == "") {
         this.displayVal = '';
@@ -77,7 +94,7 @@ export class FinderComponent implements OnInit {
   }
 
   findVideo(mantra:string) {
-   
+    console.log("ösldkflkölk" + mantra);
     let mapMantraVideo = new Map<string,string>(Object.entries(mantra_video_mapping));
     let video = mapMantraVideo.get(mantra);
 

@@ -6,6 +6,7 @@ import {map, startWith} from 'rxjs/operators';
 import * as data from '../../assets/PurposeMantra.json';
 import * as mantra_video_mapping from '../../assets/MantraVideoMapping.json';
 import { getTreeNoValidDataSourceError } from '@angular/cdk/tree';
+import { GalleryItem, ImageItem, IframeItem, GalleryRef, Gallery } from 'ng-gallery';
 
 @Component({
   selector: 'app-finder',
@@ -14,7 +15,9 @@ import { getTreeNoValidDataSourceError } from '@angular/cdk/tree';
 })
 export class FinderComponent implements OnInit {
 
-  constructor() { }
+  images: GalleryItem[] = [];
+
+  constructor(private gallery: Gallery) { }
   title="Welches Mantra suchst du?";
   isMobile():boolean {
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
@@ -24,7 +27,7 @@ export class FinderComponent implements OnInit {
     // false for not mobile device
     return false;
   }
-  
+  galleryId = 'mixedExample';
   displayVal:string="";
   displayMantra:any="";
   myControl = new FormControl();
@@ -56,6 +59,19 @@ export class FinderComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value || '')),
     );
+
+    const galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
+    
+    galleryRef.addImage({
+      src: '../../assets/img/buddhas/buddha.jpg',      
+      title: 'Bla Bla Bla'
+    });
+    galleryRef.addImage({
+      src: '../../assets/img/buddhas/buddha.jpg',      
+      title: 'Mein Titel',
+      ownerFacebook:"sdsds"
+    });
+
   }
 
   private _filter(value: string): string[] {
@@ -110,4 +126,6 @@ export class FinderComponent implements OnInit {
 
     return video;
   }
+
+ 
 }

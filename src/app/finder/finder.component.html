@@ -37,6 +37,23 @@
       </div>
  
   <br>
+  <gallery id="mixedExample"  [itemTemplate]="itemTemplate"></gallery>
+
+
+<!-- Add custom template to image items -->
+<ng-template #itemTemplate
+             let-index="index"
+             let-type="type"
+             let-data="data"
+             let-currIndex="currIndex">
+             <a href="">sdfsdfsdf</a>
+             <span *ngIf="type === 'image' && index === currIndex" [@slideAnimation] class="item-text">
+    {{data?.title}}
+    
+  </span>
+  
+</ng-template>
+
   <br>
   <br>
   <br>

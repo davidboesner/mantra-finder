@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.0.2",
-    "@angular/cdk": "^14.0.1",
+    "@angular/cdk": "^14.0.3",
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
@@ -23,6 +23,7 @@
     "@angular/youtube-player": "^14.0.2",
     "chart.js": "^3.8.0",
     "hammerjs": "^2.0.8",
+    "ng-gallery": "^7.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

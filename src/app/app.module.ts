@@ -16,7 +16,7 @@ import { FinderComponent } from './finder/finder.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { WhatIsAMantraComponent } from './what-is-amantra/what-is-amantra.component';
-
+import { GalleryModule } from  'ng-gallery';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { WhatIsAMantraComponent } from './what-is-amantra/what-is-amantra.compon
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    GalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

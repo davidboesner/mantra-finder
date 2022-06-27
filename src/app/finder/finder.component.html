@@ -46,11 +46,9 @@
              let-type="type"
              let-data="data"
              let-currIndex="currIndex">
-             <a href="">sdfsdfsdf</a>
              <span *ngIf="type === 'image' && index === currIndex" [@slideAnimation] class="item-text">
-    {{data?.title}}
-    
-  </span>
+             <div *ngIf="data.ownerFacebook"><mat-icon>facebook-dark</mat-icon><a href="https://www.facebook.com/profile.php?id={{data.ownerFacebook}}">sdsd</a></div>  
+             </span>
   
 </ng-template>
 

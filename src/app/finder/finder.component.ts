@@ -69,7 +69,7 @@ export class FinderComponent implements OnInit {
     galleryRef.addImage({
       src: '../../assets/img/buddhas/buddha.jpg',      
       title: 'Mein Titel',
-      ownerFacebook:"sdsds"
+      ownerFacebook:"100025878361787"
     });
 
   }

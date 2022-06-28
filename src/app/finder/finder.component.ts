@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import * as data from '../../assets/PurposeMantra.json';
 import * as mantra_video_mapping from '../../assets/MantraVideoMapping.json';
+import * as mantra_image_mapping from '../../assets/MantraImageMapping.json';
 import { getTreeNoValidDataSourceError } from '@angular/cdk/tree';
 import { GalleryItem, ImageItem, IframeItem, GalleryRef, Gallery } from 'ng-gallery';
 
@@ -16,7 +17,7 @@ import { GalleryItem, ImageItem, IframeItem, GalleryRef, Gallery } from 'ng-gall
 export class FinderComponent implements OnInit {
 
   images: GalleryItem[] = [];
-
+  public lastmantra:string = "";
   constructor(private gallery: Gallery) { }
   title="Welches Mantra suchst du?";
   isMobile():boolean {
@@ -27,7 +28,7 @@ export class FinderComponent implements OnInit {
     // false for not mobile device
     return false;
   }
-  galleryId = 'mixedExample';
+
   displayVal:string="";
   displayMantra:any="";
   myControl = new FormControl();
@@ -47,9 +48,9 @@ export class FinderComponent implements OnInit {
     startWith(''),
     map(value => this._filter(value || '')),
   );
-
+  
   ngOnInit() {
-
+    
     console.log(this.mapValues);
     
     this.options = this.allOptions.filter(s => s!="default").sort();
@@ -60,18 +61,6 @@ export class FinderComponent implements OnInit {
       map(value => this._filter(value || '')),
     );
 
-    const galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
-    
-    galleryRef.addImage({
-      src: '../../assets/img/buddhas/buddha.jpg',      
-      title: 'Bla Bla Bla'
-    });
-    galleryRef.addImage({
-      src: '../../assets/img/buddhas/buddha.jpg',      
-      title: 'Mein Titel',
-      ownerFacebook:"100025878361787"
-    });
-
   }
 
   private _filter(value: string): string[] {
@@ -81,6 +70,8 @@ export class FinderComponent implements OnInit {
   }
 
   getValue(val:string) {  
+    this.lastmantra="";
+    console.log(">>>>>>>>>>>>> setze lastmantra auf leer");
      //let valuesLower = this.mapValues.map(name => name.toLowerCase());
      //console.log("sdsdsdsdsd"+ valuesLower);
      // Mantra Kategorie
@@ -94,7 +85,7 @@ export class FinderComponent implements OnInit {
           found = key
         }
       });
-      this.displayMantra = found;
+      this.displayMantra = found;      
       return;
      }
      // Kategorie -> Mantra
@@ -110,22 +101,44 @@ export class FinderComponent implements OnInit {
         this.displayVal = 'Kein Mantra gefunden für: ' + val;
         this.displayMantra = "";
       }
-    }  
+    }     
   }
   
+  findPictues(mantra:string) {    
+    let mapMantraImage = new Map<string,string>(Object.entries(mantra_image_mapping));    
+    let fotos = mapMantraImage!.get(mantra);
+    if (fotos== undefined) {
+      this.lastmantra="";
+      return;
+    }
+    console.log(fotos)
+    
+    if (this.lastmantra!=mantra) {
+      console.log(" lastmantra!=mantra ");
+      console.log(" fotos!.length " + fotos!.length);
+      this.images = [];
+      for (let i = 0; i < fotos!.length; i++) {
+        let foto = fotos![i];       
+        this.images.push(
+          new ImageItem({ src: '../../assets/img/' + foto })
+        );
+      }
+      
+    }
+    this.lastmantra=mantra;
+    
+    return fotos;
+  }
+
   clearSearchField() {    
     this.searchField = '';  
   }
 
   findVideo(mantra:string) {
-    console.log("Mantra in findVideo" + mantra);
     let mapMantraVideo = new Map<string,string>(Object.entries(mantra_video_mapping));
-    console.log(mapMantraVideo);
     let video = mapMantraVideo.get(mantra);
-    console.log("Video in findVideo: " + video);
 
     return video;
   }
 
- 
 }

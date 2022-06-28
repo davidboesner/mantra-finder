@@ -37,10 +37,12 @@
       </div>
  
   <br>
-  <gallery id="mixedExample"  [itemTemplate]="itemTemplate"></gallery>
+  
+  
+  <gallery id="mixedExample" *ngIf="findPictues(mantraVideo)" [itemTemplate]="itemTemplate" [items]="images"></gallery>
 
 
-<!-- Add custom template to image items -->
+<!--Add custom template to image items -->
 <ng-template #itemTemplate
              let-index="index"
              let-type="type"
@@ -51,6 +53,7 @@
              </span>
   
 </ng-template>
+  <!--<gallery *ngIf="findPictues(mantraVideo)" [items]="images" thumbPosition="left"></gallery>-->
 
   <br>
   <br>

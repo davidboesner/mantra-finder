@@ -6,3 +6,17 @@ html{
     margin:0px;
     
   }
+  a {
+    display: inline-block;
+    transition: .3s;
+    font-weight:bold;
+    text-decoration:none;
+    color: black;
+    margin:8px;
+    }
+    a:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    margin:8px;
+    color: black;
+    }

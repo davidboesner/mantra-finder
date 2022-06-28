@@ -1,62 +1,64 @@
 <div class="center-text center-image vertical-align-middle div-with-bg">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br><br>
-    <br><br>
-    <br>
-    <span [ngClass]="{'big-text': isMobile() === true, 'small-text' : isMobile() === false }">{{title}}</span>
-    <br>
-    <br>
-    <br>  
-    <mat-form-field id="form-field-input" appearance="outline" [ngClass]="{'wide-input-field': isMobile() === true, 'narrow-input-field' : isMobile() === false }">
-      <input type="search" [(ngModel)]="searchField" placeholder='z.B. "Mitgefühl" oder "Ra Ma Da Sa"' matInput [formControl]="myControl"
-           [matAutocomplete]="auto" #box (keyup)="getValue(box.value)" (ngModelChange)="getValue(box.value)">  
-        <button mat-button mat-icon-button matSuffix (click)="clearSearchField()" *ngIf="searchField">
-            <mat-icon>close</mat-icon>
-        </button>
-         <mat-autocomplete #auto="matAutocomplete">
-           <mat-option *ngFor="let option of filteredOptions  | async" [value]="option">
-             {{option}}
-          </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-      
-    <button class="search-button" (keyup)="getValue(box.value)"><mat-icon>search</mat-icon></button>
-    <br>
-    <div>{{displayVal}}</div> <b>{{displayMantra}}</b>
-    <br>
-    <br>
-    <div><youtube-player style="align-self: center;"
-       *ngIf="findVideo(mantraVideo)"
-       [videoId]='findVideo(mantraVideo)'
-       suggestedQuality="highres"
-       [width]="400"
-       ></youtube-player></div>
-      </div>
- 
   <br>
-  
-  
-  <gallery id="mixedExample" *ngIf="findPictues(mantraVideo)" [itemTemplate]="itemTemplate" [items]="images"></gallery>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br><br>
+  <br>
+  <span [ngClass]="{'big-text': isMobile() === true, 'small-text' : isMobile() === false }">{{title}}</span>
+  <br>
+  <br>
+  <br>
+  <mat-form-field id="form-field-input" appearance="outline"
+    [ngClass]="{'wide-input-field': isMobile() === true, 'narrow-input-field' : isMobile() === false }">
+    <input type="search" [(ngModel)]="searchField" placeholder='z.B. "Mitgefühl" oder "Ra Ma Da Sa"' matInput
+      [formControl]="myControl" [matAutocomplete]="auto" #box (keyup)="getValue(box.value)"
+      (ngModelChange)="getValue(box.value)">
+    <button mat-button mat-icon-button matSuffix (click)="clearSearchField()" *ngIf="searchField">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions  | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
 
+  <button class="search-button" (keyup)="getValue(box.value)">
+    <mat-icon>search</mat-icon>
+  </button>
+  <br>
+  <div>{{displayVal}}</div> <b>{{displayMantra}}</b>
+  <br>
+  <br>
+  <div>
+    <youtube-player style="align-self: center;" *ngIf="findVideo(mantraVideo)" [videoId]='findVideo(mantraVideo)'
+      suggestedQuality="highres" [width]="400"></youtube-player>
+  </div>
+</div>
+
+<br>
+
+<!-- Show author-->
+<div style="display: flex;justify-content: center;">
+  <gallery id="mixedExample" *ngIf="findPictues(mantraVideo)" [itemTemplate]="itemTemplate" [items]="images"
+    style="width: 50vw;"></gallery>
+</div>
 
 <!--Add custom template to image items -->
-<ng-template #itemTemplate
-             let-index="index"
-             let-type="type"
-             let-data="data"
-             let-currIndex="currIndex">
-             <span *ngIf="type === 'image' && index === currIndex" [@slideAnimation] class="item-text">
-             <div *ngIf="data.ownerFacebook"><mat-icon>facebook-dark</mat-icon><a href="https://www.facebook.com/profile.php?id={{data.ownerFacebook}}">sdsd</a></div>  
-             </span>
-  
-</ng-template>
-  <!--<gallery *ngIf="findPictues(mantraVideo)" [items]="images" thumbPosition="left"></gallery>-->
+<ng-template #itemTemplate let-index="index" let-type="type" let-data="data" let-currIndex="currIndex">
+  <span *ngIf="type === 'image' && index === currIndex" [@slideAnimation] class="item-text">
+    <div *ngIf="data.ownerFacebook">
+      <mat-icon>facebook-dark</mat-icon><a
+        href="https://www.facebook.com/profile.php?id={{data.ownerFacebook}}">sdsd</a>
+    </div>
+  </span>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  
+</ng-template>
+<!--<gallery *ngIf="findPictues(mantraVideo)" [items]="images" thumbPosition="left"></gallery>-->
+
+<br>
+<br>
+<br>
+<br>

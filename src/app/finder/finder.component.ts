@@ -8,6 +8,7 @@ import * as mantra_video_mapping from '../../assets/MantraVideoMapping.json';
 import * as mantra_image_mapping from '../../assets/MantraImageMapping.json';
 import { getTreeNoValidDataSourceError } from '@angular/cdk/tree';
 import { GalleryItem, ImageItem, IframeItem, GalleryRef, Gallery } from 'ng-gallery';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-finder',
@@ -15,10 +16,12 @@ import { GalleryItem, ImageItem, IframeItem, GalleryRef, Gallery } from 'ng-gall
   styleUrls: ['./finder.component.scss']
 })
 export class FinderComponent implements OnInit {
-
+  queryParam:string ="";
   images: GalleryItem[] = [];
   public lastmantra:string = "";
-  constructor(private gallery: Gallery) { }
+  constructor(private route: ActivatedRoute,
+    private router: Router) { }
+    
   title="Welches Mantra suchst du?";
   isMobile():boolean {
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
@@ -50,7 +53,16 @@ export class FinderComponent implements OnInit {
   );
   
   ngOnInit() {
-    
+    /// get rourte from url
+    this.route.queryParams      
+      .subscribe(params => {
+        console.log(params); 
+
+        this.searchField = params['s'];        
+        this.getValue(this.searchField);
+      }
+    );
+
     console.log(this.mapValues);
     
     this.options = this.allOptions.filter(s => s!="default").sort();

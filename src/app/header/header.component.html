@@ -1,6 +1,6 @@
 <header class="navbar" [ngClass]="{'navbar-fixed':isFixedNavbar}">         
     <div class="box">
-        <img class="logo" src="assets/img/logo.svg" height="50vh" alt=""> <span class="t"><a style="color: black;" routerLink="/" routerLinkActive="active inactive">mantra-finder</a></span>
+        
         
 
          <div fxFlex class="top-navbar">
@@ -12,7 +12,7 @@
 
          <div class="navbar-mobile-top" fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start center">
             <div class="navbar-logo">
-               
+               <img class="logo" src="assets/img/logo.svg" height="50vh" alt=""> <span class="t"><a style="color: black;" routerLink="/" routerLinkActive="active inactive">mantra-finder</a></span>
             </div>
             <button mat-icon-button class="navbar-toggle" (click)="toggleNavbar()">
                <mat-icon class="black-icon">{{!navbarOpened ? 'menu': 'close'}}</mat-icon>
